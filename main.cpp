@@ -160,9 +160,13 @@ void calculateSalary()
 				else
 					reward = fixedGrossSalary;
 			}
-			else if (position == L"pracownik fizyczny")
-				reward = days * grossHourlySalary * 8;
-		}
+           		 else if (position == L"pracownik fizyczny")
+            	{
+                	if (days < 20)
+                   	 reward = days * grossHourlySalary * 8;
+               	 	else
+                    	reward = salary + days * grossHourlySalary * 8;
+           	 }
 
 		system("cls");
 		std::wcout << L"WYNAGRODZENIE PRACOWNIKA BRUTTO WYNOSI: " << reward << '\n';
